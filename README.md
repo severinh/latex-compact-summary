@@ -7,16 +7,19 @@ summaries of lecture content in a very compact three-column layout.
 It also contains a variety of commands that make typesetting summaries with many
 formulae less of a hassle.
 
-Bold-face Letters and Symbols
------------------------------
+Bold-face Latin and Greek Letters
+---------------------------------
 
 The template makes it easy to typeset formulae with many vectors and matrices,
-which commonly require bold-face letters and symbols.
+which commonly require bold-face Latin and Greek letters.
 
-Use <code>\bA</code> instead of <code>{\textbf{A}}</code> etc.
-The template supports all lowercase and uppercase letters of the Latin alphabet
-with the prefix <code>\b</code>.
+The template supports all lowercase and uppercase letters
+of the Latin and Greek alphabets with the prefix <code>\b</code>.
+For example, use <code>\bA</code> instead of <code>{\mathbf{A}}</code>
+and <code>\bsigma</code> instead of <code>{\boldsymbol \sigma}</code>
 
+Based on snippet by [Alexey Malistov](http://stackoverflow.com/questions/2952980/quick-way-to-make-26-macros-one-for-each-letter).
+ 
 Labels
 ------
 

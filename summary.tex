@@ -27,67 +27,21 @@
 \newcommand{\verbose}[1]{{\color{gray}#1}}
 \newcommand{\brief}[1]{\nottoggle{verbose}{#1}{}}
 
-% Bold uppercase and lowercase letters
-\newcommand{\bA}[0]{\textbf{A}}
-\newcommand{\bB}[0]{\textbf{B}}
-\newcommand{\bC}[0]{\textbf{C}}
-\newcommand{\bD}[0]{\textbf{D}}
-\newcommand{\bE}[0]{\textbf{E}}
-\newcommand{\bF}[0]{\textbf{F}}
-\newcommand{\bG}[0]{\textbf{G}}
-\newcommand{\bH}[0]{\textbf{H}}
-\newcommand{\bI}[0]{\textbf{I}}
-\newcommand{\bJ}[0]{\textbf{J}}
-\newcommand{\bK}[0]{\textbf{K}}
-\newcommand{\bL}[0]{\textbf{L}}
-\newcommand{\bM}[0]{\textbf{M}}
-\newcommand{\bN}[0]{\textbf{N}}
-\newcommand{\bO}[0]{\textbf{O}}
-\newcommand{\bP}[0]{\textbf{P}}
-\newcommand{\bQ}[0]{\textbf{Q}}
-\newcommand{\bR}[0]{\textbf{R}}
-\newcommand{\bS}[0]{\textbf{S}}
-\newcommand{\bT}[0]{\textbf{T}}
-\newcommand{\bU}[0]{\textbf{U}}
-\newcommand{\bV}[0]{\textbf{V}}
-\newcommand{\bW}[0]{\textbf{W}}
-\newcommand{\bX}[0]{\textbf{X}}
-\newcommand{\bY}[0]{\textbf{Y}}
-\newcommand{\bZ}[0]{\textbf{Z}}
+% Commands for bolf-face latin and greek letters
+% Based on the snippet by Alexey Malistov
+% http://stackoverflow.com/questions/2952980/quick-way-to-make-26-macros-one-for-each-letter
 
-\newcommand{\ba}[0]{\textbf{a}}
-\newcommand{\bb}[0]{\textbf{b}}
-\newcommand{\bc}[0]{\textbf{c}}
-\newcommand{\bd}[0]{\textbf{d}}
-\newcommand{\be}[0]{\textbf{e}}
-\renewcommand{\bf}[0]{\textbf{f}} % Clashes with the built-in \bf
-\newcommand{\bg}[0]{\textbf{g}}
-\newcommand{\bh}[0]{\textbf{h}}
-\newcommand{\bi}[0]{\textbf{i}}
-\newcommand{\bj}[0]{\textbf{j}}
-\newcommand{\bk}[0]{\textbf{k}}
-\newcommand{\bl}[0]{\textbf{l}}
-\newcommand{\bm}[0]{\textbf{m}}
-\newcommand{\bn}[0]{\textbf{n}}
-\newcommand{\bo}[0]{\textbf{o}}
-\newcommand{\bp}[0]{\textbf{p}}
-\newcommand{\bq}[0]{\textbf{q}}
-\newcommand{\br}[0]{\textbf{r}}
-\newcommand{\bs}[0]{\textbf{s}}
-\newcommand{\bt}[0]{\textbf{t}}
-\newcommand{\bu}[0]{\textbf{u}}
-\newcommand{\bv}[0]{\textbf{v}}
-\newcommand{\bw}[0]{\textbf{w}}
-\newcommand{\bx}[0]{\textbf{x}}
-\newcommand{\by}[0]{\textbf{y}}
-\newcommand{\bz}[0]{\textbf{z}}
+% Latin alphabet
+\def\mydefb#1{\expandafter\def\csname b#1\endcsname{\mathbf{#1}}}
+\def\mydefallb#1{\ifx#1\mydefallb\else\mydefb#1\expandafter\mydefallb\fi}
+\mydefallb ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz\mydefallb
 
-\newcommand{\bbeta}[0]{\boldsymbol \beta}
-\newcommand{\bmu}[0]{\boldsymbol \mu}
-\newcommand{\bpi}[0]{\boldsymbol \pi}
-\newcommand{\bpsi}[0]{\boldsymbol \psi}
-\newcommand{\bphi}[0]{\boldsymbol \phi}
-\newcommand{\bSigma}[0]{\boldsymbol \Sigma}
+% Greek alphabet
+\def\mydefgreek#1{\expandafter\def\csname b#1\endcsname{\text{\boldmath$\mathbf{\csname #1\endcsname}$}}}
+\def\mydefallgreek#1{\ifx\mydefallgreek#1\else\mydefgreek{#1}%
+   \lowercase{\mydefgreek{#1}}\expandafter\mydefallgreek\fi}
+\mydefallgreek {alpha}{beta}{gamma}{delta}{epsilon}{zeta}{eta}{theta}{iota}{kappa}{lambda}{mu}{nu}{xi}{omicron}{pi}{rho}{sigma}{tau}{upsilon}{phi}{chi}{psi}{omega}
+{Alpha}{Beta}{Gamma}{Delta}{Epsilon}{Zeta}{Eta}{Theta}{Iota}{Kappa}{Lambda}{Mu}{Nu}{Xi}{Omicron}{Pi}{Rho}{Sigma}{Tau}{Upsilon}{Phi}{Chi}{Psi}{Omega}\mydefallgreek
 
 \newcommand{\boolset}[0]{{\{0, 1\}}}
 \newcommand{\frob}[1]{{\vert|#1\vert|_F}}
