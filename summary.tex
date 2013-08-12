@@ -1,0 +1,183 @@
+% LaTeX template for summaries of lecture content with a very compact three-column
+
+\documentclass[a4paper,11pt]{article}
+\usepackage[margin=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage[small,compact]{titlesec}
+\usepackage{enumitem}
+\usepackage{amsfonts}
+\usepackage{etoolbox}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{ulem}
+\usepackage{xifthen} % provides \isempty test
+
+% Nice symbols for real and complex numbers
+\newcommand{\R}[0]{\mathbb{R}}
+\newcommand{\C}[0]{\mathbb{C}}
+
+% No page numbers
+\pagenumbering{gobble}
+
+% Whether to create the long or short version
+\providetoggle{verbose}
+\settoggle{verbose}{true}
+
+%\newcommand{\verbose}[1]{\iftoggle{verbose}{#1}{}}
+\newcommand{\verbose}[1]{{\color{gray}#1}}
+\newcommand{\brief}[1]{\nottoggle{verbose}{#1}{}}
+
+% Bold uppercase and lowercase letters
+\newcommand{\bA}[0]{\textbf{A}}
+\newcommand{\bB}[0]{\textbf{B}}
+\newcommand{\bC}[0]{\textbf{C}}
+\newcommand{\bD}[0]{\textbf{D}}
+\newcommand{\bE}[0]{\textbf{E}}
+\newcommand{\bF}[0]{\textbf{F}}
+\newcommand{\bG}[0]{\textbf{G}}
+\newcommand{\bH}[0]{\textbf{H}}
+\newcommand{\bI}[0]{\textbf{I}}
+\newcommand{\bJ}[0]{\textbf{J}}
+\newcommand{\bK}[0]{\textbf{K}}
+\newcommand{\bL}[0]{\textbf{L}}
+\newcommand{\bM}[0]{\textbf{M}}
+\newcommand{\bN}[0]{\textbf{N}}
+\newcommand{\bO}[0]{\textbf{O}}
+\newcommand{\bP}[0]{\textbf{P}}
+\newcommand{\bQ}[0]{\textbf{Q}}
+\newcommand{\bR}[0]{\textbf{R}}
+\newcommand{\bS}[0]{\textbf{S}}
+\newcommand{\bT}[0]{\textbf{T}}
+\newcommand{\bU}[0]{\textbf{U}}
+\newcommand{\bV}[0]{\textbf{V}}
+\newcommand{\bW}[0]{\textbf{W}}
+\newcommand{\bX}[0]{\textbf{X}}
+\newcommand{\bY}[0]{\textbf{Y}}
+\newcommand{\bZ}[0]{\textbf{Z}}
+
+\newcommand{\ba}[0]{\textbf{a}}
+\newcommand{\bb}[0]{\textbf{b}}
+\newcommand{\bc}[0]{\textbf{c}}
+\newcommand{\bd}[0]{\textbf{d}}
+\newcommand{\be}[0]{\textbf{e}}
+\renewcommand{\bf}[0]{\textbf{f}} % Clashes with the built-in \bf
+\newcommand{\bg}[0]{\textbf{g}}
+\newcommand{\bh}[0]{\textbf{h}}
+\newcommand{\bi}[0]{\textbf{i}}
+\newcommand{\bj}[0]{\textbf{j}}
+\newcommand{\bk}[0]{\textbf{k}}
+\newcommand{\bl}[0]{\textbf{l}}
+\newcommand{\bm}[0]{\textbf{m}}
+\newcommand{\bn}[0]{\textbf{n}}
+\newcommand{\bo}[0]{\textbf{o}}
+\newcommand{\bp}[0]{\textbf{p}}
+\newcommand{\bq}[0]{\textbf{q}}
+\newcommand{\br}[0]{\textbf{r}}
+\newcommand{\bs}[0]{\textbf{s}}
+\newcommand{\bt}[0]{\textbf{t}}
+\newcommand{\bu}[0]{\textbf{u}}
+\newcommand{\bv}[0]{\textbf{v}}
+\newcommand{\bw}[0]{\textbf{w}}
+\newcommand{\bx}[0]{\textbf{x}}
+\newcommand{\by}[0]{\textbf{y}}
+\newcommand{\bz}[0]{\textbf{z}}
+
+\newcommand{\bbeta}[0]{\boldsymbol \beta}
+\newcommand{\bmu}[0]{\boldsymbol \mu}
+\newcommand{\bpi}[0]{\boldsymbol \pi}
+\newcommand{\bpsi}[0]{\boldsymbol \psi}
+\newcommand{\bphi}[0]{\boldsymbol \phi}
+\newcommand{\bSigma}[0]{\boldsymbol \Sigma}
+
+\newcommand{\boolset}[0]{{\{0, 1\}}}
+\newcommand{\frob}[1]{{\vert|#1\vert|_F}}
+\newcommand{\norm}[1]{{\vert|#1\vert|}}
+\newcommand{\sumover}[2]{\sum_{#1=1}^#2}
+
+\newcommand{\seeslides}[1][]{%
+	\verbose{%
+		\colorbox{Cerulean!50}{%
+			\textcolor{black}{%
+				See slides%
+				\ifthenelse{\isempty{#1}}{}{: #1}%
+			}%
+		}%
+	}%
+}
+
+\newcommand{\seeexercise}[1][]{%
+	\verbose{%
+		\colorbox{Cerulean!50}{%
+			\textcolor{black}{%
+				See exercise%
+				\ifthenelse{\isempty{#1}}{}{: #1}%
+			}%
+		}%
+	}%
+}
+
+\newcommand{\seeliterature}[1][]{%
+	\verbose{%
+		\colorbox{Cerulean!50}{%
+			\textcolor{black}{%
+				See literature%
+				\ifthenelse{\isempty{#1}}{}{: #1}%
+			}%
+		}%
+	}%
+}
+
+\newcommand{\unclear}[1][]{%
+	\verbose{%
+		\colorbox{Red!50}{%
+			\textcolor{black}{%
+				Unclear%
+				\ifthenelse{\isempty{#1}}{}{: #1}%
+			}%
+		}%
+	}%
+}
+
+% Make the report more compact
+\linespread{0.95}
+\addtolength{\parindent}{-6mm}
+\setlist[description]{leftmargin=*, labelwidth=0em, itemindent=0em, itemsep=0em, parsep=0em, nolistsep}
+\setlist[itemize]{leftmargin=*, labelwidth=0em, itemindent=0em, itemsep=0em, parsep=0em, nolistsep}
+\titlespacing*{\section}{0pt}{0.4em}{0em}
+\titlespacing*{\subsection}{0pt}{0em}{0em}
+\titlespacing*{\subsubsection}{0pt}{0em}{0em}
+
+\begin{document}
+\begin{multicols}{3}
+
+\section{Section Title}
+
+\subsection{Subsection Title}
+
+\begin{description}
+	\item[Text]
+		Lorem ipsum
+	\verbose{%
+	\item[Text In Verbose Summary]
+		Lorem Ipsum
+	}
+	\item[Boolean Matrix Factorization]
+		$\arg \min_{\bU,\bZ} \frac{1}{2} \norm{\bX-\bU\otimes \bZ}_1$, where
+		$(\bU\otimes \bZ)_{d,n} = \bigvee_k \left(u_{d,k} \wedge z_{k,n}\right)$,
+		$\bX\in \R^{D\times N}, \bU\in \R^{D\times K}, \bZ\in \{0,1\}^{K\times N}$.
+	\item[Labels]
+		\unclear
+
+		\unclear[Proof]
+
+		\seeslides
+
+		\seeliterature
+
+		\seeexercise
+\end{description}
+
+\raggedcolumns
+
+\end{multicols}
+\end{document}
