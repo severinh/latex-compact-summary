@@ -4,6 +4,8 @@ Compact LaTeX Layout for Summaries
 <code>summary.tex</code> is a LaTeX template originally created to quickly typeset
 summaries of lecture content in a very compact three-column layout.
 
+It also contains a variety of commands that make typesetting summaries with many
+formulae less of a hassle.
 
 Bold-face Letters and Symbols
 -----------------------------
@@ -11,8 +13,9 @@ Bold-face Letters and Symbols
 The template makes it easy to typeset formulae with many vectors and matrices,
 which commonly require bold-face letters and symbols.
 
-The template makes it possible to use <code>\bA</code> instead of
-<code>{\textbf{A}}</code>.
+Use <code>\bA</code> instead of <code>{\textbf{A}}</code> etc.
+The template supports all lowercase and uppercase letters of the Latin alphabet
+with the prefix <code>\b</code>.
 
 Labels
 ------
