@@ -20,6 +20,12 @@ a long and a short summary separately as part of your learning process,
 write only one summary and mark as many sections as less relevant
 until the page limit is satisfied.
 
+Setting the <code>verbose</code> toggle in the document preamble
+determines what should happen with verbose sections during rendering.
+Use <code>\settoggle{verbose}{true}</code> to render sections marked as verbose in gray color.
+Alternatively, use <code>\settoggle{verbose}{true}</code>
+to completely hide verbose sections.
+
 Bold-face Latin and Greek Letters
 ---------------------------------
 
@@ -32,7 +38,7 @@ For example, use <code>\bA</code> instead of <code>{\mathbf{A}}</code>
 and <code>\bsigma</code> instead of <code>{\boldsymbol \sigma}</code>
 
 Based on snippet by [Alexey Malistov](http://stackoverflow.com/questions/2952980/quick-way-to-make-26-macros-one-for-each-letter).
- 
+
 Labels
 ------
 
@@ -50,3 +56,9 @@ You can supply custom text as an option parameter to each of the above commands,
 for instance <code>\unclear[Proof]</code>.
 
 Labels only appear in the verbose variant of the summary.
+
+Example
+-------
+
+See the [example PDF](https://github.com/severinh/latex-compact-summary/blob/master/summary.pdf?raw=true)
+generated from the <code>summary.tex</code> template.
