@@ -7,6 +7,19 @@ summaries of lecture content in a very compact three-column layout.
 It also contains a variety of commands that make typesetting summaries with many
 formulae less of a hassle.
 
+Combined Short and Verbose Summary
+----------------------------------
+
+The <code>verbose</code> toggle makes it possible to mark verbose
+(potentially less important) sections in the summary as follows:
+<code>\verbose{Less important text}</code>
+
+This is particularly useful if you are allowed to bring a summary
+to an exam with a maximum number of pages. Instead of writing
+a long and a short summary separately as part of your learning process,
+write only one summary and mark as many sections as less relevant
+until the page limit is satisfied.
+
 Bold-face Latin and Greek Letters
 ---------------------------------
 

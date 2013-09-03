@@ -1,4 +1,5 @@
 % LaTeX template for summaries of lecture content with a very compact three-column
+% Author: Severin Heiniger (severinheiniger@gmail.com)
 
 \documentclass[a4paper,11pt]{article}
 \usepackage[margin=1cm]{geometry}
@@ -12,19 +13,22 @@
 \usepackage{ulem}
 \usepackage{xifthen} % provides \isempty test
 
-% Nice symbols for real and complex numbers
-\newcommand{\R}[0]{\mathbb{R}}
-\newcommand{\C}[0]{\mathbb{C}}
+% The 'verbose' toggle makes it possible to mark verbose
+% (potentially less important) sections in the summary as follows:
+% \verbose{Less important text}
 
-% No page numbers
-\pagenumbering{gobble}
-
-% Whether to create the long or short version
+% This is particularly useful if you are allowed to bring a summary
+% to an exam with a maximum number of pages. Instead of writing
+% a long and a short summary separately as part of your learning process,
+% write only one summary and mark as many sections as less relevant
+% until the page limit is satisfied.
 \providetoggle{verbose}
+
+% Set the 'verbose' toggle to 'true' to render sections marked as verbose.
+% Set the 'verbose' toggle to 'false' to completely hide verbose sections.
 \settoggle{verbose}{true}
 
-%\newcommand{\verbose}[1]{\iftoggle{verbose}{#1}{}}
-\newcommand{\verbose}[1]{{\color{gray}#1}}
+\newcommand{\verbose}[1]{\iftoggle{verbose}{\color{gray}#1}{}}
 \newcommand{\brief}[1]{\nottoggle{verbose}{#1}{}}
 
 % Commands for bolf-face latin and greek letters
@@ -43,11 +47,26 @@
 \mydefallgreek {alpha}{beta}{gamma}{delta}{epsilon}{zeta}{eta}{theta}{iota}{kappa}{lambda}{mu}{nu}{xi}{omicron}{pi}{rho}{sigma}{tau}{upsilon}{phi}{chi}{psi}{omega}
 {Alpha}{Beta}{Gamma}{Delta}{Epsilon}{Zeta}{Eta}{Theta}{Iota}{Kappa}{Lambda}{Mu}{Nu}{Xi}{Omicron}{Pi}{Rho}{Sigma}{Tau}{Upsilon}{Phi}{Chi}{Psi}{Omega}\mydefallgreek
 
+% Nice symbols for real and complex numbers
+\newcommand{\R}[0]{\mathbb{R}}
+\newcommand{\C}[0]{\mathbb{C}}
+
+% Some commands useful for linear algebra
 \newcommand{\boolset}[0]{{\{0, 1\}}}
 \newcommand{\frob}[1]{{\vert|#1\vert|_F}}
 \newcommand{\norm}[1]{{\vert|#1\vert|}}
 \newcommand{\sumover}[2]{\sum_{#1=1}^#2}
 
+% Commands for colorful labels
+% Use labels to highlight stuff that is still unclear or to refer to slides,
+% exercises or the literature. Labels are typeset with a red or blue background,
+% denoting unclear content or a reference, respectively.
+% Use the following commands to create a label.
+
+% You can supply custom text as an option parameter to each
+% of the above commands, for instance \unclear[Proof].
+
+% Labels only appear in the verbose variant of the summary.
 \newcommand{\seeslides}[1][]{%
 	\verbose{%
 		\colorbox{Cerulean!50}{%
@@ -100,6 +119,9 @@
 \titlespacing*{\section}{0pt}{0.4em}{0em}
 \titlespacing*{\subsection}{0pt}{0em}{0em}
 \titlespacing*{\subsubsection}{0pt}{0em}{0em}
+
+% No page numbers
+\pagenumbering{gobble}
 
 \begin{document}
 \begin{multicols}{3}
